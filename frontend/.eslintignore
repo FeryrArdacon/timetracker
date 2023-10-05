@@ -1,0 +1,7 @@
+**/dist/**
+**/node_modules/**
+**/webapp/lib/**
+**/service-worker.js
+**/ui5swlib.js
+**/quill.**
+karma.conf.js

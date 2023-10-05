@@ -1,0 +1,5 @@
+**/dist/**
+**/node_modules/**
+**/webapp/lib/**
+**/ui5swlib.js
+**/quill.**

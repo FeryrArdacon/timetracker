@@ -1,0 +1,16 @@
+version: "3.4"
+services:
+  mysqldb:
+    image: docker.io/library/mysql:8
+    restart: unless-stopped
+    ports:
+      - "3606:3606"
+    environment:
+      MYSQL_ROOT_PASSWORD: test
+      MYSQL_DATABASE: timetracking
+  apiserver:
+    image: feryrardacon/timetracker-server:latest
+    build: .
+    restart: unless-stopped
+    ports:
+      - "7667:7667"

@@ -1,0 +1,100 @@
+<mvc:View
+	controllerName="timetracker.controller.Main"
+	displayBlock="true"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+>
+	<Page>
+		<customHeader>
+			<OverflowToolbar>
+				<Title text="{i18n>main.title}"/>
+				<ToolbarSpacer/>
+				<OverflowToolbarButton
+					icon="sap-icon://add"
+					text="{i18n>main.button.add}"
+					press="onAddTimeSpan"
+				/>
+				<OverflowToolbarButton
+					icon="sap-icon://edit"
+					text="{i18n>main.button.edit}"
+					press="onEditTimeSpan"
+				/>
+				<OverflowToolbarButton
+					icon="sap-icon://delete"
+					text="{i18n>main.button.delete}"
+					type="Reject"
+					press="onDeleteTimeSpan"
+				/>
+			</OverflowToolbar>
+		</customHeader>
+		<Table
+			id="timesspanstable"
+			items="{
+				path: 'TrackedTimes>/timesspans',
+				sorter: [{
+					path: 'status',
+					descending: false
+				}, {
+					path: 'start',
+					descending: true
+				}]
+			}"
+			fixedLayout="false"
+			mode="SingleSelectLeft"
+			noDataText="{i18n>main.table.noData}"
+			sticky="ColumnHeaders"
+		>
+			<columns>
+				<Column>
+					<Label text="{i18n>main.header.description}"/>
+				</Column>
+				<Column
+					demandPopin="true"
+					popinDisplay="Inline"
+					minScreenWidth="Tablet"
+				>
+					<Label text="{i18n>main.header.start}"/>
+				</Column>
+				<Column
+					demandPopin="true"
+					popinDisplay="Inline"
+					minScreenWidth="Tablet"
+				>
+					<Label text="{i18n>main.header.end}"/>
+				</Column>
+				<Column hAlign="End">
+					<Label text="{i18n>main.header.time}"/>
+				</Column>
+			</columns>
+			<ColumnListItem>
+				<Text text="{TrackedTimes>description}"/>
+				<HBox>
+					<Text text="{
+						path: 'TrackedTimes>start',
+						formatter: '.formatter.formatDateTimeString'
+					}"/>
+					<Button
+						text="{i18n>main.button.start}"
+						press="onStartTracking"
+						visible="{= ${TrackedTimes>status} === '0' ? true : false }"
+					/>
+				</HBox>
+				<HBox>
+					<Text text="{
+						path: 'TrackedTimes>end',
+						formatter: '.formatter.formatDateTimeString'
+					}"/>
+					<Button
+						text="{i18n>main.button.stop}"
+						press="onStopTracking"
+						visible="{= ${TrackedTimes>status} === '1' ? true : false }"
+					/>
+				</HBox>
+				<Text text="{
+					path: 'TrackedTimes>time',
+					formatter: '.formatter.formatTrackedTime'
+				} {i18n>main.content.hours}"/>
+			</ColumnListItem>
+		</Table>
+	</Page>
+</mvc:View>

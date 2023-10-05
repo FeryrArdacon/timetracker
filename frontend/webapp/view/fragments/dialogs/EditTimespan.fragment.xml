@@ -1,0 +1,45 @@
+<core:FragmentDefinition
+	xmlns:core="sap.ui.core"
+	xmlns="sap.m"
+	xmlns:form="sap.ui.layout.form"
+>
+	<Dialog title="{i18n>dialog.newtimespan.title}">
+		<form:SimpleForm editable="true">
+			<Label text="{i18n>main.header.description}"/>
+			<Input
+				placeholder="{i18n>dialog.newtimespan.description}"
+				value="{EditTimespanDialogVM>/description}"
+			/>
+			<Label text="{i18n>main.header.start}"/>
+			<DateTimePicker value="{
+				path: 'EditTimespanDialogVM>/start',
+				type: 'sap.ui.model.type.DateTime',
+				formatOptions: {
+					pattern: 'dd.MM.yyyy hh:mm'
+				}
+			}"/>
+			<Label text="{i18n>main.header.end}"/>
+			<DateTimePicker value="{
+				path: 'EditTimespanDialogVM>/end',
+				type: 'sap.ui.model.type.DateTime',
+				formatOptions: {
+					pattern: 'dd.MM.yyyy hh:mm'
+				}
+			}"/>
+		</form:SimpleForm>
+		<beginButton>
+			<Button
+				type="Reject"
+				text="{i18n>action.cancel}"
+				press="onCancelEditTimespanDialog"
+			/>
+		</beginButton>
+		<endButton>
+			<Button
+				type="Accept"
+				text="{i18n>action.ok}"
+				press="onAcceptEditTimespanDialog"
+			/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

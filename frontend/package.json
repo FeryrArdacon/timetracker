@@ -1,0 +1,46 @@
+{
+  "name": "timetracker",
+  "version": "1.0.0",
+  "description": "Zeiterfassung",
+  "scripts": {
+    "test": "karma start",
+    "serve": "ui5 serve --config=ui5.yaml --accept-remote-connections",
+    "build": "ui5 build --config=ui5.yaml --clean-dest --dest dist --include-task=generateVersionInfo",
+    "build:all": "ui5 build --config=ui5.yaml --clean-dest --all --dest dist --include-task=generateVersionInfo && rm -Rf dist/test/"
+  },
+  "author": "Patrick Siegmund",
+  "license": "MIT",
+  "ui5": {
+    "ui5parser": {
+      "ui5version": "1.117.0",
+      "excludeFolderPatterns": [
+        "**/resources/**",
+        "**/dist/**",
+        "**/node_modules/**",
+        "**/lib/**"
+      ]
+    },
+    "ui5linter": {
+      "severity": {
+        "UnusedClassLinter": "Warning"
+      },
+      "eventNamingPattern": ".*",
+      "idNamingPattern": ".*"
+    }
+  },
+  "devDependencies": {
+    "@ui5/cli": "^3.5.0",
+    "eslint": "^8.37.0",
+    "eslint-plugin-feryrardacon-ui5": "^1.0.8",
+    "karma": "^6.4.2",
+    "karma-firefox-launcher": "^2.1.2",
+    "karma-qunit": "^4.1.2",
+    "karma-sinon": "^1.0.5",
+    "karma-ui5": "^3.0.3",
+    "prettier": "^2.8.8",
+    "qunit": "^2.19.4",
+    "sinon": "^15.0.4",
+    "ui5-middleware-livereload": "^0.8.2",
+    "ui5plugin-linter": "^1.8.2"
+  }
+}

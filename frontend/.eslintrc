@@ -1,0 +1,13 @@
+{
+  "env": {
+    "es2021": true,
+    "browser": true,
+    "jquery": true,
+    "node": true
+  },
+  "globals": {
+    "QUnit": true,
+    "sinon": true
+  },
+  "extends": ["eslint:recommended", "plugin:feryrardacon-ui5/recommended"]
+}

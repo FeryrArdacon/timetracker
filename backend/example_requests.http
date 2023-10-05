@@ -1,0 +1,44 @@
+POST http://localhost:7667/api/startTracking HTTP/1.1
+content-type: application/json
+
+{
+  "id": "",
+  "start": "",
+  "end": "",
+  "time": 0,
+  "description": "Test 1",
+  "status": "0"
+}
+
+###
+
+POST http://localhost:7667/api/startTracking HTTP/1.1
+content-type: application/json
+
+{
+  "id": "",
+  "start": "",
+  "end": "",
+  "time": 0,
+  "description": "Test 2",
+  "status": "0"
+}
+
+###
+
+PUT http://localhost:7667/api/stopTracking HTTP/1.1
+content-type: application/json
+
+{
+  "id": "1",
+  "start": "2023-10-03T17:20:01.000Z",
+  "end": "",
+  "time": 0,
+  "description": "Test 1",
+  "status": "1"
+}
+
+###
+
+GET http://localhost:7667/api/readTrackedTimes HTTP/1.1
+content-type: application/json
