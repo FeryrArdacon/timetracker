@@ -8,6 +8,8 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: test
       MYSQL_DATABASE: timetracking
+    volumes:
+      - <db_folder>:/var/lib/mysql
   apiserver:
     image: feryrardacon/timetracker-server:latest
     build: .
